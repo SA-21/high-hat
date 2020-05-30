@@ -1,8 +1,8 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth.models import User
 from django.contrib import auth
+from .models import Sample
 
-# Create your views here.
 def home(request):
     return render(request, 'home.html')
 
@@ -10,7 +10,12 @@ def challenges(request):
     return render(request, 'challenges.html')
 
 def samples(request):
-    return render(request, 'samples.html')
+    samples = Sample.objects.all()
+    return render(request, 'samples.html',{'samples': samples})
+
+def sample(request, sample_id):
+    sampledetails = get_object_or_404(Sample, pk = sample_id)
+    return render(request, 'sample.html', {'sampledetails' : sampledetails})
 
 def signup(request):
     if request.method == "POST":

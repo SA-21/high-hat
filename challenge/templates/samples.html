@@ -6,11 +6,6 @@
 {% endblock %}
 
 {% block content %}
-
-<head>
-</head>   
-
-<body>
     <div class="row"> 
         <!-- sidebar 랑main 구별해주는 class 는 row -->
     <nav id="sidebarMenu" class="col-md-3 col-lg-2 d-md-block bg-light sidebar collapse">
@@ -35,6 +30,8 @@
     </nav>
 
  <main role="main" class="col-md-9 ml-sm-auto col-lg-10">
+
+   <!-- commcial banner -->
     <div id="myCarousel" class="carousel slide" data-ride="carousel">
       <ol class="carousel-indicators">
         <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
@@ -79,8 +76,63 @@
         <span class="sr-only">Next</span>
       </a>
     </div>
-</div>
-</body>
+       <!-- catergory -->
 
+        <div style="width: 100%;text-align: center;">
+          <div style="display: inline-block; margin-right:10px;">
+        <button href="#" class="btn btn-warning" type="button">OVERVIEW</button>
+      </div>
+          <div class="dropdown" style="display: inline-block;">
+            <button class="btn btn-warning dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              GENRES
+            </button>
+            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+              <a class="dropdown-item" href="#">HIPHOP</a>
+              <a class="dropdown-item" href="#">POP</a>
+              <a class="dropdown-item" href="#">EDM</a>
+            </div>
+        </div>
+      </div>
+   <!-- card -->
+
+    <div class="album py-5 bg-light">
+      <div class="container">
+  
+        <div class="row">
+          {% for sample in samples %}
+          <div class="col-md-4">
+            <div class="card mb-4 shadow-sm">
+              <img src="{{sample.photo.url}}" class="card-img-top" height = "300px" alt="...">
+              <div class="card-body">
+                <p class="card-text">{{sample.title}}</p>
+                <div class="d-flex justify-content-between align-items-center">
+                  <div class="btn-group">
+                    <a href="{% url 'sample' sample.id %}" class="btn btn-sm btn-outline-secondary">View</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          {% endfor %}
+    </div>
+</div>
 
 {% endblock %}
+
+
+
+<!-- <div class="col mb-4">
+              <div class="card h-100">
+                <div class="card" style = "margin-bottom : 25px;">
+                  <div class="card-header" style="text-align:center">
+                    <img src="{{sample.photo.url}}" class="card-img-top" height = "300px" alt="...">
+                  </div>
+                    <div class="card-body">
+                      <h5 class="card-title">{{sample.title}}</h5>
+                      <p class="card-text">{{sample.body}}......</p>
+                      <a href="{% url 'sample' sample.id %}" class="btn btn-warning">더보기</a>
+                   </div>
+                 </div>
+              </div>
+            </div> -->
+           

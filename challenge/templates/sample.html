@@ -1,5 +1,12 @@
-{% extends 'base1.html' %}
+{% extends 'base2.html' %}
 
 {% block content %}
-
+    <div class="card-header text-info">{{sampledetails.title}}</div>
+        <div class="card-body text-info">
+            <div align="center">
+                <img src="{{samples.photo.url}}" height = "300px" alt="..."style="border:10px solid #e1b12c; margin: 30px;">
+                <p class="card-text">{{sampledetails.body}}</p>
+            </div>
+        </div>
+    </div>
 {% endblock content %}
