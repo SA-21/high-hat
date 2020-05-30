@@ -1,19 +1,26 @@
 {% extends 'base1.html' %}
 
 {% block content %}
-<div style="width: 500px; height: 800px; margin:100px auto;">
+
+<style>
+  h1, h6, button{
+    font-family: 'Francois One', sans-serif;
+    }
+</style>
+
+<div style="border: 3px;align-items: center;width: 500px; height: 700px; margin:100px auto;">
+  <U><h1>LOGIN</h1></U>
 <form method="POST" action="{%url 'login'%}">
   {% csrf_token %}
   <div class="form-group">
-    <label for="exampleInputEmail1">ID</label>
-    <input type="text" class="form-control" name="username">
+    <h6>ID</h6>
+    <input type="text"  style="width:350px; height:40px;" class="form-control" name="username">
   </div>
   <div class="form-group">
-    <label for="exampleInputPassword1">Password</label>
-    <input type="password" class="form-control" name="password">
+    <h6>PASSWORD</h6>
+    <input type="password"  style="width:350px; height:40px;" class="form-control" name="password">
   </div>
-  <button type="submit" class="btn btn-primary">Submit</button>
+  <button type="submit"  style="width:350px; height:40px;"class="btn btn-warning">Submit</button>
 </form>
 </div>
 {% endblock content %}
-

@@ -13,10 +13,10 @@ SECRET_KEY = os.environ.get('DJANGO_SECRET_KEY','!2h4jd4)_35dy0jd*nzfw)@)f5@%#!j
 
 # SECURITY WARNING: don't run with debug turned on in production!
 # True라고 하면 에러 다 보여줌.
-DEBUG = False
+DEBUG = True
 
 # DEBUG=False이지만 여기서만 에러가 보이게할 수 있다.
-ALLOWED_HOSTS = ['.herokuapp.com']
+# ALLOWED_HOSTS = ['.herokuapp.com']
 
 
 # Application definition
@@ -29,7 +29,6 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'challenge',
-    'sample',
 ]
 
 MIDDLEWARE = [

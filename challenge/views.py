@@ -9,8 +9,8 @@ def home(request):
 def challenges(request):
     return render(request, 'challenges.html')
 
-def sample(request):
-    return render(request, 'sample.html')
+def samples(request):
+    return render(request, 'samples.html')
 
 def signup(request):
     if request.method == "POST":
@@ -33,6 +33,10 @@ def login(request):
             return render(request, 'login.html', {'error': 'username or password is incorrect.'})
     else:
         return render(request, 'login.html')
+
+def logout(request):
+    auth.logout(request)
+    return redirect('home')
 
 def dashboard(request):
     return render(request, 'dashboard.html')
